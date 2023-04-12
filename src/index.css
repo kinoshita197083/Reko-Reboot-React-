@@ -1,13 +1,57 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+:root {
+  /* background */
+  --bg: rgb(26, 25, 25);
+  --nav-mobile-menu-bg: rgb(46, 45, 45);
+
+  /* theme */
+  --text-color: white;
+
+  /* navbar */
+  --nav-logo-font-size: 1.8rem;
+  --nav-bg-color: var(var(--bg));
+  --nav-btn-color: var(--btn-color);
+  --nav-size: 5rem;
+
+  /* button */
+  --btn-color: rgb(193, 42, 42);
+  --btn-font-size: 1rem;
+
+  /* heading */
+  --heading-font-size: 2.5rem;
+  --heading-mobile-font-size: 2rem;
+
+  /* content */
+  --content-font-size: 1.2rem;
+  --content-mobile-font-size: 1rem;
+
+  /* other */
+  --speed: 500ms;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: 'IBM Plex Sans', sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: var(--text-color);
+  text-decoration: none;
 }

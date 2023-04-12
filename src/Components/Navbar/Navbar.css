@@ -1,0 +1,21 @@
+.navbar {
+    height: var(--nav-size);
+    background-color: var(--nav-bg-color);
+    padding: 0 4rem;
+    display: flex;
+    align-items: center;
+}
+
+.nav-menu {
+    max-width: 100%;
+    height: 100%;
+    flex-grow: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.nav-logo {
+    font-size: var(--nav-logo-font-size);
+    color: var(--text-color);
+    width: 5rem;
+}

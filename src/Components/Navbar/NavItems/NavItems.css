@@ -1,0 +1,18 @@
+.nav-links {
+    color: var(--text-color);
+    width: calc(var(--nav-size) * 2.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease-in-out;
+}
+
+.item {
+    padding: 5%;
+    border-radius: 20px;
+    transition: all 0.2s ease-in-out;
+}
+
+.item:hover {
+    background-color: var(--btn-color);
+}

@@ -1,0 +1,12 @@
+.nav-btn {
+    background-color: var(--btn-color);
+    padding: 3% 10%;
+    border: 1px solid transparent;
+    border-radius: 6px;
+    transition: all 0.2s ease-in-out;
+}
+
+.nav-btn:hover {
+    background-color: transparent;
+    border: 1px solid var(--btn-color);
+}
