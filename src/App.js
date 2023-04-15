@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 import Navbar from './Components/Navbar/Navbar';
 import NavItem from './Components/Navbar/NavItems/NavItems';
-import Button from './Components/Button/Button'
+import { navlinks } from './Components/Navbar/navlinks'
 
 function App() {
 
@@ -11,11 +11,16 @@ function App() {
     <div className="App">
       <Router>
         <Navbar>
-          <NavItem icon="About" page="/" />
-          <NavItem icon="Analyse" page="/" />
-          <NavItem icon="Query" page="/" />
-          <NavItem icon="Manual" page="/" />
-          {/* <Button icon="Manual" page="/" /> */}
+          {navlinks.map((link) => {
+            return (
+              <NavItem
+                icon={link.icon}
+                page={link.page}
+                type={link.type}
+                key={link.id}
+              />
+            )
+          })}
         </Navbar>
         <Routes>
           {/* <Route path='/' element={<Home />} /> */}

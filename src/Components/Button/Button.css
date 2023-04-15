@@ -1,12 +1,55 @@
-.nav-btn {
+.btn {
+    color: var(--text-color);
+    height: 2rem;
+    width: 5rem;
     background-color: var(--btn-color);
     padding: 3% 10%;
     border: 1px solid transparent;
     border-radius: 6px;
     transition: all 0.2s ease-in-out;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: transparent;
+    border: 1px solid var(--btn-color);
+}
+
+.nav-btn {
+    color: var(--text-color);
+    height: 2rem;
+    width: 5rem;
+    background-color: var(--btn-color);
+    padding: 3% 10%;
+    border: 1px solid transparent;
+    border-radius: 6px;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
 }
 
 .nav-btn:hover {
     background-color: transparent;
     border: 1px solid var(--btn-color);
+}
+
+.link-remove-default {
+    text-decoration: none;
+    outline: none;
+    color: inherit;
+}
+
+@media (max-width: 800px) {
+    .nav-btn {
+        color: var(--text-color);
+        border: none;
+        width: 100%;
+        height: 100%;
+        background-color: var(--nav-btn-mobile-color);
+        cursor: pointer;
+        transition: height 0.2s ease-in-out;
+    }
+
+    .nav-btn:hover {
+        background-color: var(--nav-btn-color);
+    }
 }

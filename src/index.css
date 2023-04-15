@@ -11,9 +11,11 @@
   --nav-bg-color: var(var(--bg));
   --nav-btn-color: var(--btn-color);
   --nav-size: 5rem;
+  --nav-mobile-menu-height: 500px;
 
   /* button */
   --btn-color: rgb(193, 42, 42);
+  --nav-btn-mobile-color: var(var(--nav-mobile-menu-bg));
   --btn-font-size: 1rem;
 
   /* heading */

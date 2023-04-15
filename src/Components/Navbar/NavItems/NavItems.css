@@ -16,3 +16,21 @@
 .item:hover {
     background-color: var(--btn-color);
 }
+
+@media (max-width: 800px) {
+    .nav-links {
+        display: block;
+        height: calc(var(--nav-mobile-menu-height) / 4);
+        width: 100%;
+    }
+
+    .item {
+        padding: 0;
+        display: block;
+        border-radius: 0;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}

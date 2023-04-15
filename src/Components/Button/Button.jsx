@@ -5,10 +5,10 @@ import { Link } from 'react-router-dom';
 export default function Button(props) {
 
     return (
-        <button className='nav-btn'>
-            <Link to={props.page}>
+        <Link to={props.page} className='link-remove-default'>
+            <button className={props.btnType === 'btn' ? 'btn' : 'nav-btn'}>
                 {props.icon}
-            </Link>
-        </button>
+            </button>
+        </Link>
     )
 }

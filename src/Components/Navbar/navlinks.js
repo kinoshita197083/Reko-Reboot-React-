@@ -1,18 +1,30 @@
 export const navlinks = [
     {
+        id: '1',
         class: 'nav-links',
-        page: 'About'
+        icon: 'About',
+        page: '/',
+        type: 'text'
     },
     {
+        id: '2',
         class: 'nav-links',
-        page: 'Analyse'
+        icon: 'Analyse',
+        page: '/',
+        type: 'text'
     },
     {
+        id: '3',
         class: 'nav-links',
-        page: 'Query'
+        icon: 'Query',
+        page: '/',
+        type: 'text'
     },
     {
+        id: '4',
         class: 'nav-btn',
-        page: 'Manual'
+        icon: 'Manual',
+        page: '/',
+        type: 'button'
     },
 ];
