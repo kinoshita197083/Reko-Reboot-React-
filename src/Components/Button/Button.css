@@ -1,9 +1,10 @@
 .btn {
     color: var(--text-color);
+    font-size: 0.9rem;
     height: 2.5rem;
     width: 6.2rem;
     background-color: var(--btn-color);
-    padding: 3% 10%;
+    /* padding: 3% 10%; */
     border: 1px solid transparent;
     border-radius: 6px;
     transition: all 0.2s ease-in-out;
@@ -17,10 +18,11 @@
 
 .nav-btn {
     color: var(--text-color);
+    font-size: 0.9rem;
     height: 2rem;
     width: 5rem;
     background-color: var(--btn-color);
-    padding: 3% 10%;
+    /* padding: 3% 10%; */
     border: 1px solid transparent;
     border-radius: 6px;
     transition: all 0.2s ease-in-out;

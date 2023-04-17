@@ -1,17 +1,20 @@
 @import url(../../index.css);
 
 .section-heading {
-    --heading-font-size: 3rem;
-
     color: var(--text-color);
     font-size: var(--heading-font-size);
-    margin-bottom: 6%;
+    margin-block: 6%;
 }
 
 .section-paragraph {
-    --content-font-size: 1.2rem;
-
     color: var(--text-color);
     font-size: var(--content-font-size);
-    margin-bottom: 5%;
+    margin-bottom: 6%;
+}
+
+.section-ul {
+    list-style: circle;
+    color: var(--text-color);
+    margin-left: 3%;
+    line-height: 185%;
 }

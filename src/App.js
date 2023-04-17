@@ -5,6 +5,9 @@ import Navbar from './Components/Navbar/Navbar';
 import NavItem from './Components/Navbar/NavItems/NavItems';
 import { navlinks } from './Components/Navbar/navlinks'
 import HomePage from './Pages/Home/Home';
+import AboutPage from './Pages/About/About';
+import AnalysePage from './Pages/Analyse/Analyse';
+import QueryPage from './Pages/Query/Query';
 
 function App() {
 
@@ -25,6 +28,9 @@ function App() {
         </Navbar>
         <Routes>
           <Route path='/' element={<HomePage />} />
+          <Route path='/about' element={<AboutPage />} />
+          <Route path='/analyse' element={<AnalysePage />} />
+          <Route path='/query' element={<QueryPage />} />
         </Routes>
       </Router>
     </div>

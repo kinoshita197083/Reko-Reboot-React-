@@ -1,0 +1,20 @@
+.drag-drop-area {
+    max-width: 45rem;
+    height: max-content;
+    border: 3px dotted white;
+    margin: 0 auto;
+}
+
+.drag-drop-area h1,
+h3 {
+    color: var(--text-color);
+    font-size: 2rem;
+    margin-bottom: 6%;
+}
+
+.drag-drop-img-wrapper {
+    width: minmax(18rem, 90%);
+    height: auto;
+    margin: 5% auto;
+    overflow: hidden;
+}
