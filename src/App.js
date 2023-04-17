@@ -4,6 +4,7 @@ import './App.css';
 import Navbar from './Components/Navbar/Navbar';
 import NavItem from './Components/Navbar/NavItems/NavItems';
 import { navlinks } from './Components/Navbar/navlinks'
+import HomePage from './Pages/Home/Home';
 
 function App() {
 
@@ -23,7 +24,7 @@ function App() {
           })}
         </Navbar>
         <Routes>
-          {/* <Route path='/' element={<Home />} /> */}
+          <Route path='/' element={<HomePage />} />
         </Routes>
       </Router>
     </div>

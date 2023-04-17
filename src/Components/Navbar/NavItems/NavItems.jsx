@@ -5,18 +5,19 @@ import Button from '../../Button/Button'
 
 export default function NavItem(props) {
 
+    const { icon, page, type } = props;
 
     return (
         <li className='nav-links'>
-            {props.type === 'text' ?
+            {type === 'text' ?
 
-                <Link to={props.page} className='item'>
-                    {props.icon}
+                <Link to={page} className='item'>
+                    {icon}
                 </Link>
                 :
                 <Button
-                    icon={props.icon}
-                    to={props.page}
+                    icon={icon}
+                    to={page}
                     btnType={'nav'}
                 />}
         </li>

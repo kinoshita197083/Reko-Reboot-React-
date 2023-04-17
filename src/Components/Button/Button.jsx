@@ -5,9 +5,9 @@ import { Link } from 'react-router-dom';
 export default function Button(props) {
 
     return (
-        <Link to={props.page} className='link-remove-default'>
-            <button className={props.btnType === 'btn' ? 'btn' : 'nav-btn'}>
-                {props.icon}
+        <Link to={props.page || '/'} className='link-remove-default'>
+            <button className={props.btnType === 'nav' ? 'nav-btn' : 'btn'}>
+                {props.icon || 'Test'}
             </button>
         </Link>
     )
