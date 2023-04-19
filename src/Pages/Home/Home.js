@@ -15,7 +15,7 @@ export default function HomePage(props) {
 
     return (
         // Classic Two-Columns-Layout
-        <div className='container even-columns'>
+        <div className='container even-columns fade-in'>
             <ClassicSection heading={heading} firstPara={content1}>
                 <Button icon='Get Started' />
             </ClassicSection>

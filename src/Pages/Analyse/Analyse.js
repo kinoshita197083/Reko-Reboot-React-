@@ -9,13 +9,18 @@ export default function AnalysePage(props) {
     const heading2 = "OR";
     const btnText = "Browse"
 
+    const analyse = () => {
+        console.log('developing')
+    }
+
     return (
-        <div className='container-s'>
+        <div className='container-s fade-in'>
             <DragDropUpload
                 imageURI={imageURI}
                 heading={heading}
                 subheading={heading2}
                 btnText={btnText}
+                eventHandle={analyse}
             />
         </div>
     )

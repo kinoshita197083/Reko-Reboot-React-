@@ -16,7 +16,7 @@ export default function AboutPage(props) {
     const imageURI = "/Asset/undraw_images.svg";
 
     return (
-        <div className='container even-columns'>
+        <div className='container even-columns fade-in'>
             <ImageDisplay imageURI={imageURI} />
             <ClassicSection
                 heading={heading}

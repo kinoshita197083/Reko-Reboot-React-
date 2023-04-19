@@ -89,8 +89,30 @@ section {
   margin: 0 auto;
 }
 
+.justify-center {
+  justify-content: center;
+}
+
+.spacer {
+  margin: 0 2%;
+}
+
+.fade-in {
+  animation: fadeIn 0.5s;
+}
+
 @media (max-width: 800px) {
   section {
     height: 60vh;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
   }
 }
