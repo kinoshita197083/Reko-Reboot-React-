@@ -1,0 +1,13 @@
+.text-bubble {
+    /* width: 20rem; */
+    border-radius: 12px;
+    background-color: rgb(108, 108, 216);
+    color: white;
+    padding: 3px 12px;
+    font-size: var(--text-bubble-font-size);
+    scroll-snap-align: start;
+}
+
+.bubble-content {
+    white-space: nowrap;
+}

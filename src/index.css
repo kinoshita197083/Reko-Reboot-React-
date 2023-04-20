@@ -26,6 +26,13 @@
   --content-font-size: 1rem;
   --content-mobile-font-size: 1rem;
 
+  /* bubble display bar */
+  --bubble-display-bar-height: 3rem;
+  --bubble-display-bar-width: 65%;
+
+  /* text-bubble */
+  --text-bubble-font-size: 1.1rem;
+
   /* other */
   --speed: 500ms;
 }

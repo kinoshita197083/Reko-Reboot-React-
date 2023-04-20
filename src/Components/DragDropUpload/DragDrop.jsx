@@ -1,16 +1,20 @@
-import React, { useRef, useState } from 'react';
+import React, { useImperativeHandle, useRef, useState, forwardRef } from 'react';
 import './DragDrop.css';
 import ImageDisplay from '../../SectionTemplate/ImageDisplay/ImageDisplay';
 import Button from '../Button/Button';
 
-export default function DragDropUpload(props) {
+const DragDropUpload = forwardRef((props, ref) => {
 
     const { imageURI, heading, subheading, btnText, eventHandle } = props;
 
     //states
-    const [selectedFile, setSelectedFile] = useState(null);
+    const [selectedFile, setSelectedFile] = useState();
     const [imageSrc, setImageSrc] = useState(imageURI);
-    const inputRef = useRef(null);
+    const inputRef = useRef();
+
+    // useEffect(() => {
+    //     console.log('Drag & Drop Rerenderd')
+    // }, [selectedFile])
 
     const parseFileIntoImageURI = (file) => {
         let fileReader = new FileReader();
@@ -42,6 +46,16 @@ export default function DragDropUpload(props) {
         return validTypes.includes(file.type);
     };
 
+    //Allow Parent Component to call a method that's defined in Child component
+    //So that Parent Component can retrieve the state of its Child
+    //Decoupling purpose, so that it doesn't need to pass down a function to handle file selection, which is supposed to be handle by this component
+    //https://www.youtube.com/watch?v=ZtcgPhWv1e8&list=PL0Zuz27SZ-6PSdiQpSxO9zxvB0ns6m3ta&index=6&ab_channel=DaveGray
+    useImperativeHandle(ref, () => ({
+        getSelectedFile: () => {
+            return [selectedFile.name, imageSrc];
+        },
+    }))
+
     return (
         <div className='drag-drop-area container'>
             <h1>{selectedFile ? selectedFile.name : heading}</h1>
@@ -58,4 +72,6 @@ export default function DragDropUpload(props) {
             </div>
         </div>
     )
-}
+})
+
+export default React.memo(DragDropUpload);
