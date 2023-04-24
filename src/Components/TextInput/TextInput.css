@@ -1,0 +1,11 @@
+.text-input-themed {
+    width: calc(var(--bubble-display-bar-width) * 0.85);
+    height: 2rem;
+    border-radius: 15px;
+    padding-left: 5px;
+    font-size: 1rem;
+    color: var(--text-color);
+    margin: 0 3%;
+    background-color: rgb(89, 88, 88);
+    margin-left: auto;
+}

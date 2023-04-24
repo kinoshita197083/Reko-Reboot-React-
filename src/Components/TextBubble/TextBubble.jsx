@@ -3,10 +3,10 @@ import './TextBubble.css';
 
 const TextBubble = (props) => {
 
-    const { text } = props;
+    const { text, handleClick, clickable } = props;
 
     return (
-        <div className='text-bubble'>
+        <div className='text-bubble' onClick={handleClick} style={{ cursor: clickable ? 'pointer' : '' }}>
             <p className='bubble-content'>
                 {text}
             </p>
@@ -14,4 +14,4 @@ const TextBubble = (props) => {
     )
 };
 
-export default React.memo(TextBubble);
+export default TextBubble;

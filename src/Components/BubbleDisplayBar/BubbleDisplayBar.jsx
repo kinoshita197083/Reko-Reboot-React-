@@ -1,19 +1,20 @@
-import React from 'react';
 import './BubbleDisplayBar.css';
 import TextBubble from '../TextBubble/TextBubble';
 
 const BubbleDisplayBar = (props) => {
 
-    const { results } = props;
+    const { textBubbles, setTextBubbles, clickable } = props;
 
     return (
         <div className='bubble-display-bar'>
             <div className='bubble-section'>
-                {results.map(result => {
+                {textBubbles && textBubbles.map(bubble => {
                     return (
                         <TextBubble
-                            key={result.Name}
-                            text={result.Name}
+                            key={bubble.Name || bubble}
+                            text={bubble.Name || bubble}
+                            handleClick={setTextBubbles}
+                            clickable={clickable}
                         />
                     );
                 })}

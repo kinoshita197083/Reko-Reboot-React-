@@ -7,15 +7,14 @@ const DragDropUpload = forwardRef((props, ref) => {
 
     const { imageURI, heading, subheading, btnText, eventHandle } = props;
 
-    //states
+    // States
     const [selectedFile, setSelectedFile] = useState();
     const [imageSrc, setImageSrc] = useState(imageURI);
-    const inputRef = useRef();
 
-    // useEffect(() => {
-    //     console.log('Drag & Drop Rerenderd')
-    // }, [selectedFile])
+    // Use for accessing the hidden input button; Perform click() when a substituted button received click event
+    const hiddenUploadBtn = useRef();
 
+    // Parsing the uploaded img into base64 for backend submission
     const parseFileIntoImageURI = (file) => {
         let fileReader = new FileReader();
         fileReader.onload = () => {
@@ -57,20 +56,22 @@ const DragDropUpload = forwardRef((props, ref) => {
     }))
 
     return (
-        <div className='drag-drop-area container'>
-            <h1>{selectedFile ? selectedFile.name : heading}</h1>
-            <h3>{selectedFile ? null : subheading}</h3>
+        <>
+            <div className='drag-drop-area container'>
+                <h1>{selectedFile ? selectedFile.name : heading}</h1>
+                <h3>{selectedFile ? null : subheading}</h3>
 
-            <div className='drag-drop-img-wrapper'>
-                <ImageDisplay imageURI={imageSrc} maxWidth={'18rem'} />
-            </div>
+                <div className='drag-drop-img-wrapper'>
+                    <ImageDisplay imageURI={imageSrc} maxWidth={'18rem'} />
+                </div>
 
-            <div className='flex justify-center btn-group'>
-                <Button icon={btnText} eventHandle={() => { inputRef.current.click() }} />
-                <input ref={inputRef} type='file' style={{ display: 'none' }} onChange={handleChange}></input>
-                {selectedFile ? <Button icon={'Submit'} eventHandle={eventHandle} /> : null}
+                <div className='flex justify-center btn-group'>
+                    <Button icon={btnText} eventHandle={() => { hiddenUploadBtn.current.click() }} />
+                    <input ref={hiddenUploadBtn} type='file' style={{ display: 'none' }} onChange={handleChange}></input>
+                    {selectedFile ? <Button icon={'Submit'} eventHandle={eventHandle} /> : null}
+                </div>
             </div>
-        </div>
+        </>
     )
 })
 
