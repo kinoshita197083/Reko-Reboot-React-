@@ -1,0 +1,11 @@
+.search-btn {
+    background-color: var(--btn-color);
+    color: var(--text-color);
+    display: inline-block;
+    border: none;
+    padding: 10px 12px;
+    margin: 0;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 50%;
+}

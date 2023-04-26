@@ -1,0 +1,1 @@
+export const queryAPI = "https://gc6qq4wfde.execute-api.ap-southeast-2.amazonaws.com/prod/queryreko";

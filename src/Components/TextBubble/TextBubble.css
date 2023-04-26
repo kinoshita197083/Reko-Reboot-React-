@@ -1,7 +1,8 @@
 .text-bubble {
     /* width: 20rem; */
     border-radius: 12px;
-    background-color: rgb(108, 108, 216);
+    /* background-color: rgb(108, 108, 216); */
+    background-color: var(--btn-color);
     color: white;
     padding: 3px 12px;
     font-size: var(--text-bubble-font-size);
