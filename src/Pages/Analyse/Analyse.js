@@ -4,7 +4,7 @@
     Reference:
     https://adrianfdez469.medium.com/keep-react-child-state-on-the-child-if-possible-d531f0715408
 */
-import React, { useState, useRef } from 'react';
+import React, { useRef, useReducer } from 'react';
 import './Analyse.css';
 import DragDropUpload from '../../Components/DragDropUpload/DragDrop';
 import BubbleDisplayBar from '../../Components/BubbleDisplayBar/BubbleDisplayBar';
@@ -21,20 +21,36 @@ export default function AnalysePage() {
     const btnText = "Browse"
 
     const dragDropComponent = useRef();
-    const [selectedFile, setSelectedFile] = useState();
-    const [loading, setLoading] = useState(false);
-    const [results, setResults] = useState([]);
+
+    const reducer = (state, action) => {
+        switch (action.type) {
+            case 'uploadFile':
+                return { ...state, file: action.payload };
+            case 'removeFile':
+                return { ...state, file: null };
+            case 'isLoading':
+                return { ...state, loading: true };
+            case 'notLoading':
+                return { ...state, loading: false };
+            case 'updateResults':
+                return { ...state, results: [...action.payload] }
+            default:
+                throw new Error();
+        }
+    }
+
+    const [state, dispatch] = useReducer(reducer, { file: null, loading: false, results: [] });
 
 
     const submitFile = async (backendURL) => {
         //Bind child's state to the parent for keep tracking
         const [fileName, imgURI] = dragDropComponent.current.getSelectedFile();
-        setSelectedFile(fileName);
+        dispatch({ type: 'uploadFile', payload: fileName });
 
         //Reduce unnecessary backend traffic
-        if (fileName === selectedFile) return;
+        if (fileName === state.selectedFile) return;
 
-        setLoading(true);
+        dispatch({ type: 'isLoading' });
         let response = await fetch(backendURL, {
             method: 'POST',
             headers: {
@@ -54,8 +70,8 @@ export default function AnalysePage() {
         if (!data) return;
         data = await data.clone().json().catch((err) => alert(err)) // .json() method been called once before it is stored in cache, so it will crash without .clone()
         // console.log(data.Labels);
-        setLoading(false);
-        setResults(data.Labels);
+        dispatch({ type: 'notLoading' });
+        dispatch({ type: 'updateResults', payload: data.Labels });
     };
 
     return (
@@ -69,12 +85,12 @@ export default function AnalysePage() {
                 ref={dragDropComponent}
             />
 
-            {results.length > 0 &&
+            {state.results.length > 0 &&
                 <BubbleDisplayBar
-                    textBubbles={results}
+                    textBubbles={state.results}
                 />}
 
-            {loading && <Spinner />}
+            {state.loading && <Spinner />}
         </div>
     )
 }

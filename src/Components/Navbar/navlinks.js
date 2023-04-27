@@ -23,7 +23,7 @@ export const navlinks = [
     {
         id: '4',
         class: 'nav-btn',
-        icon: 'Manual',
+        icon: 'Sign out',
         page: '/',
         type: 'button'
     },

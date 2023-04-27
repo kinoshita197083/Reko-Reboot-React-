@@ -1,0 +1,33 @@
+.login-page {
+    width: 100%;
+}
+
+.display {
+    visibility: visible;
+    color: tomato;
+}
+
+.hide {
+    visibility: hidden;
+}
+
+.login-page form {
+    /* background-color: rgb(190, 190, 190); */
+    width: 50%;
+    padding: 5%;
+    margin: 0 auto;
+}
+
+.login-page input {
+    width: 50%;
+    margin: 1% auto;
+    padding: 1%;
+    border-radius: 10px;
+    display: block;
+    background-color: grey;
+    color: white;
+}
+
+.login-page input:focus {
+    outline: 1px solid tomato;
+}
