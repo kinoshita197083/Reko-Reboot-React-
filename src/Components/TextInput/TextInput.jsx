@@ -3,7 +3,7 @@ import './TextInput.css';
 
 const TextInput = (props) => {
 
-    const { textBubbles, setTextBubbles } = props;
+    const { textBubbles, setTextBubbles: dispatch } = props;
     const [input, setInput] = useState('');
 
     const handleChange = (e) => {
@@ -19,7 +19,8 @@ const TextInput = (props) => {
 
     const appendBubble = (userInput) => {
         if (validateInput(userInput)) {
-            setTextBubbles([...textBubbles, userInput]);
+            // setTextBubbles([...textBubbles, userInput]);
+            dispatch({ type: 'setTextBubbles', payload: [...textBubbles, userInput] })
         }
         setInput('');
     }

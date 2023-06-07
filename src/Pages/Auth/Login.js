@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import './Login.css';
 import useAuth from '../../Hook/useAuth';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const LoginPage = () => {
 
@@ -12,12 +12,14 @@ const LoginPage = () => {
 
     const { auth, setAuth } = useAuth();
     const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/';
 
     const handleAuth = (e) => {
         e.preventDefault();
         if (userInput === 'password') {
             setAuth('approved');
-            navigate("/")
+            navigate(from, { replace: true });
         } else {
             setErr(true);
         }
@@ -25,7 +27,7 @@ const LoginPage = () => {
 
     useEffect(() => {
         if (auth.auth === "approved") {
-            navigate("/");
+            navigate(from, { replace: true });
         }
 
         passwordRef.current.focus();

@@ -3,7 +3,7 @@ import TextBubble from '../TextBubble/TextBubble';
 
 const BubbleDisplayBar = (props) => {
 
-    const { textBubbles, setTextBubbles, clickable } = props;
+    const { textBubbles, setTextBubbles: dispatch, clickable } = props;
 
     return (
         <div className='bubble-display-bar'>
@@ -13,7 +13,7 @@ const BubbleDisplayBar = (props) => {
                         <TextBubble
                             key={bubble.Name || bubble}
                             text={bubble.Name || bubble}
-                            handleClick={setTextBubbles}
+                            handleClick={clickable ? (e) => dispatch({ type: 'removeTextBubble', payload: e.target.innerText }) : null}
                             clickable={clickable}
                         />
                     );

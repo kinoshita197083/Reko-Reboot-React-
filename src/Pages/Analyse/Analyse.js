@@ -1,26 +1,22 @@
-/*
-    Access child's state by passing ref down to the CHILD Component
-
-    Reference:
-    https://adrianfdez469.medium.com/keep-react-child-state-on-the-child-if-possible-d531f0715408
-*/
-import React, { useRef, useReducer } from 'react';
+import React, { useReducer } from 'react';
 import './Analyse.css';
 import DragDropUpload from '../../Components/DragDropUpload/DragDrop';
 import BubbleDisplayBar from '../../Components/BubbleDisplayBar/BubbleDisplayBar';
 import Spinner from '../../Components/Loading/Loading';
 import { analyseAPI } from '../../api/AnalyseAPI';
+import { useSelector, useDispatch } from 'react-redux';
+import { selectedFile } from '../../Components/DragDropUpload/dragDropSlice';
 
 export default function AnalysePage() {
 
     const backendURL = analyseAPI;
 
-    const imageURI = "./Asset/undraw_no_data.svg";
     const heading = "Drag & Drop to Upload File";
     const heading2 = "OR";
     const btnText = "Browse"
 
-    const dragDropComponent = useRef();
+    const dispatched = useDispatch();
+    const encodedImg = useSelector(selectedFile);
 
     const reducer = (state, action) => {
         switch (action.type) {
@@ -43,12 +39,13 @@ export default function AnalysePage() {
 
 
     const submitFile = async (backendURL) => {
-        //Bind child's state to the parent for keep tracking
-        const [fileName, imgURI] = dragDropComponent.current.getSelectedFile();
+        const { fileName, src: imgURI } = encodedImg;
+
+        //Store it temporaily for the below usecase
         dispatch({ type: 'uploadFile', payload: fileName });
 
         //Reduce unnecessary backend traffic
-        if (fileName === state.selectedFile) return;
+        if (fileName === state.file) return;
 
         dispatch({ type: 'isLoading' });
         let response = await fetch(backendURL, {
@@ -77,12 +74,10 @@ export default function AnalysePage() {
     return (
         <div className='container-s fade-in'>
             <DragDropUpload
-                imageURI={imageURI}
                 heading={heading}
                 subheading={heading2}
                 btnText={btnText}
                 eventHandle={() => { analyse(backendURL) }}
-                ref={dragDropComponent}
             />
 
             {state.results.length > 0 &&

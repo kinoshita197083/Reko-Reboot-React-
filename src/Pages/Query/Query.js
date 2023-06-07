@@ -1,27 +1,40 @@
-import { useState } from 'react';
+import { useReducer } from 'react';
 import './Query.css';
 import BubbleDisplayBar from '../../Components/BubbleDisplayBar/BubbleDisplayBar';
 import TextInput from '../../Components/TextInput/TextInput';
 import SearchButton from '../../Components/SearchButton/SearchButton';
 import { queryAPI } from '../../api/QueryAPI'
 import Spinner from '../../Components/Loading/Loading';
+import Carousel from '../../Components/Carousel/Carousel';
 
 
 export default function QueryPage() {
 
-    const [textBubbles, setTextBubbles] = useState([]);
-    const [loading, setLoading] = useState(false);
-    const [results, setResults] = useState([]);
+    const reducer = (state, action) => {
+        switch (action.type) {
+            case 'setTextBubbles':
+                return { ...state, textBubbles: [...action.payload] };
+            case 'removeTextBubble':
+                return { ...state, textBubbles: [...state.textBubbles.filter(bubble => bubble !== action.payload)] };
+            case 'clearTextBubbles':
+                return { ...state, textBubbles: [] };
+            case 'isLoading':
+                return { ...state, loading: true };
+            case 'notLoading':
+                return { ...state, loading: false };
+            case 'setResults':
+                return { ...state, results: [...action.payload] };
+            default:
+                throw new Error();
+        }
+    };
 
-
-    const removeTextBubble = (e) => {
-        let target = e.target.innerText;
-        setTextBubbles(prev => prev.filter(bubble => bubble !== target))
-    }
+    const [state, dispatch] = useReducer(reducer, { textBubbles: [], loading: false, results: [] });
 
     const submitTextbubbles = async () => {
-        setLoading(true);
-        console.log(textBubbles)
+        dispatch({ type: 'clearTextBubbles' });
+        dispatch({ type: 'isLoading' });
+        // console.log(state.textBubbles)
         const backendURL = queryAPI;
         const response = await fetch(backendURL, {
             method: 'POST',
@@ -29,7 +42,7 @@ export default function QueryPage() {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                tags: textBubbles
+                tags: state.textBubbles
             })
         });
         return response;
@@ -38,9 +51,9 @@ export default function QueryPage() {
     const query = async () => {
         const res = await submitTextbubbles().catch(err => err);
         const data = await res.json();
-        console.log(data);
-        setResults(data);
-        setLoading(false);
+        // console.log(data);
+        dispatch({ type: 'setResults', payload: data })
+        dispatch({ type: 'notLoading' });
     }
 
     return (
@@ -48,21 +61,21 @@ export default function QueryPage() {
             <h1 className='section-heading'>Looking for an image?</h1>
 
             <BubbleDisplayBar
-                textBubbles={textBubbles}
-                setTextBubbles={removeTextBubble}
+                textBubbles={state.textBubbles}
+                setTextBubbles={dispatch}
                 clickable={true}
             >
                 <TextInput
-                    textBubbles={textBubbles}
-                    setTextBubbles={setTextBubbles}
+                    textBubbles={state.textBubbles}
+                    setTextBubbles={dispatch}
                 />
-                {textBubbles.length > 0 && <SearchButton clickHandler={query} />}
+                {state.textBubbles.length > 0 && <SearchButton clickHandler={query} />}
 
             </BubbleDisplayBar>
 
-            {results && this}
+            {state.results.length > 0 && <Carousel results={state.results} />}
 
-            {loading && <Spinner />}
+            {state.loading && <Spinner />}
         </div>
     )
 }
