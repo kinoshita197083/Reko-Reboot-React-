@@ -18,3 +18,13 @@
     margin-left: 3%;
     line-height: 185%;
 }
+
+.justified-text {
+    text-align: justify;
+}
+
+/* @media (max-width: 800px) {
+    .justified-text {
+        text-align: left;
+    }
+} */

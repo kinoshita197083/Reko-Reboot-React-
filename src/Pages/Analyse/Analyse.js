@@ -4,7 +4,7 @@ import DragDropUpload from '../../Components/DragDropUpload/DragDrop';
 import BubbleDisplayBar from '../../Components/BubbleDisplayBar/BubbleDisplayBar';
 import Spinner from '../../Components/Loading/Loading';
 import { analyseAPI } from '../../api/AnalyseAPI';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { selectedFile } from '../../Components/DragDropUpload/dragDropSlice';
 
 export default function AnalysePage() {
@@ -15,7 +15,6 @@ export default function AnalysePage() {
     const heading2 = "OR";
     const btnText = "Browse"
 
-    const dispatched = useDispatch();
     const encodedImg = useSelector(selectedFile);
 
     const reducer = (state, action) => {

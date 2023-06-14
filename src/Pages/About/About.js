@@ -17,7 +17,7 @@ export default function AboutPage(props) {
 
     return (
         <div className='container even-columns fade-in'>
-            <ImageDisplay imageURI={imageURI} />
+            <ImageDisplay imageURI={imageURI} imageWidth={'25rem'} />
             <ClassicSection
                 heading={heading}
                 firstPara={content1}

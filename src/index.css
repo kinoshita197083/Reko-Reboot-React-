@@ -71,7 +71,7 @@ img {
 
 section {
   max-width: 50rem;
-  height: 70vh;
+  height: 100vh;
 }
 
 .container {
@@ -79,14 +79,33 @@ section {
   height: max-content;
 }
 
+.container-curved-bottom {
+  padding: 5% 8%;
+  min-height: 70vh;
+  border-bottom-left-radius: 25%;
+  border-bottom-right-radius: 25%;
+  background: linear-gradient(rgb(26, 25, 25), rgb(37, 36, 36));
+}
+
 .container-s {
   padding: 1% 8%;
+  min-height: max-content;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.container-narrow {
+  padding: 5% 20%;
   height: max-content;
 }
 
 .even-columns {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+  min-height: 85vh;
   text-align: left;
 }
 
@@ -111,6 +130,11 @@ section {
 @media (max-width: 800px) {
   section {
     height: 60vh;
+  }
+
+  .container-narrow {
+    padding: 5% 8%;
+    height: max-content;
   }
 }
 

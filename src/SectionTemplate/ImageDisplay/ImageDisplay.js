@@ -3,12 +3,12 @@ import './ImageDisplay.css';
 
 export default function ImageDisplay(props) {
 
-    let { imageURI, description, hideInMobile, maxWidth } = props;
+    let { imageURI, description, hideInMobile, imageWidth } = props;
 
     hideInMobile = hideInMobile ? 'hideInMobile' : '';
 
     return (
-        <div className={`image-wrapper ${hideInMobile}`} style={{ maxWidth: maxWidth }}>
+        <div className={`image-wrapper ${hideInMobile}`} style={{ width: imageWidth }}>
             <img
                 src={imageURI}
                 width='100%'

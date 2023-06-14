@@ -6,6 +6,7 @@ import MenuIcon from '../MenuIcon/MenuIcon';
 export default function Navbar(props) {
 
     const [click, setClick] = useState(false);
+    const [changeNavColor, setChangeNavColor] = useState(false);
     const navbarRef = useRef();
 
     const closeMenu = (e) => {
@@ -13,6 +14,16 @@ export default function Navbar(props) {
             setClick(false)
         }
     };
+
+    const changeNavbarColor = () => {
+        if (window.scrollY >= 80) {
+            setChangeNavColor(true);
+        } else {
+            setChangeNavColor(false);
+        }
+    }
+
+    window.addEventListener('scroll', changeNavbarColor);
 
     const handleCLick = () => {
         setClick(!click)
@@ -27,7 +38,7 @@ export default function Navbar(props) {
     }, [])
 
     return (
-        <nav className='navbar'>
+        <nav className='navbar' style={{ backgroundColor: changeNavColor ? 'rgb(26, 25, 25, 0.6)' : '' }}>
             <Link to='/'>
                 <h1 className='nav-logo'>Reko</h1>
             </Link>

@@ -1,5 +1,6 @@
 .navbar {
-    position: relative;
+    position: sticky;
+    top: 0;
     height: var(--nav-size);
     background-color: var(--nav-bg-color);
     padding: 0 4rem;

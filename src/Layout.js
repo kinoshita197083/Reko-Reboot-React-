@@ -7,6 +7,7 @@ const Layout = () => {
 
     return (
         <main className="App">
+            <div />
             <Navbar>
                 {navlinks.map((link) => {
                     return (
