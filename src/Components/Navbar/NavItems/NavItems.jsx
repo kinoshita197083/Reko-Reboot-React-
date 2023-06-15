@@ -22,6 +22,7 @@ export default function NavItem(props) {
                     to={page}
                     btnType={'nav'}
                     eventHandle={removeAuth}
+                    disabled
                 />}
         </li>
     )

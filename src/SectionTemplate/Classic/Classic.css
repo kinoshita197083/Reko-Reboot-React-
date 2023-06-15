@@ -10,6 +10,7 @@
     color: var(--text-color);
     font-size: var(--content-font-size);
     margin-bottom: 6%;
+    line-height: 200%;
 }
 
 .section-ul {
@@ -23,8 +24,8 @@
     text-align: justify;
 }
 
-/* @media (max-width: 800px) {
-    .justified-text {
-        text-align: left;
+@media (max-width: 800px) {
+    .section-paragraph {
+        line-height: normal;
     }
-} */
+}

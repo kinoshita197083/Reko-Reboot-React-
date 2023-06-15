@@ -69,20 +69,23 @@ img {
   /* object-fit: contain; */
 }
 
-section {
+/* section {
   max-width: 50rem;
   height: 100vh;
-}
+} */
 
 .container {
   padding: 5% 8%;
   height: max-content;
+  overflow: hidden;
 }
 
-.container-curved-bottom {
-  padding: 5% 8%;
-  min-height: 70vh;
+.curved-bottom-left {
   border-bottom-left-radius: 25%;
+  background: linear-gradient(rgb(26, 25, 25), rgb(37, 36, 36));
+}
+
+.curved-bottom-right {
   border-bottom-right-radius: 25%;
   background: linear-gradient(rgb(26, 25, 25), rgb(37, 36, 36));
 }
@@ -90,7 +93,7 @@ section {
 .container-s {
   padding: 1% 8%;
   min-height: max-content;
-  height: 90vh;
+  /* height: 90vh; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -105,8 +108,11 @@ section {
 .even-columns {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
-  min-height: 85vh;
   text-align: left;
+}
+
+.min-height-100 {
+  min-height: 90vh;
 }
 
 .flex {
@@ -135,6 +141,18 @@ section {
   .container-narrow {
     padding: 5% 8%;
     height: max-content;
+  }
+
+  .container {
+    padding: 5% 5%;
+  }
+
+  .curved-bottom-left {
+    border-bottom-left-radius: 15%;
+  }
+
+  .curved-bottom-right {
+    border-bottom-right-radius: 15%;
   }
 }
 

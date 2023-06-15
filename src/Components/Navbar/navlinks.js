@@ -16,14 +16,14 @@ export const navlinks = [
     {
         id: '3',
         class: 'nav-links',
-        icon: 'Query',
+        icon: 'Browse',
         page: '/query',
         type: 'text'
     },
     {
         id: '4',
         class: 'nav-btn',
-        icon: 'Sign out',
+        icon: 'Sign In',
         page: '/',
         type: 'button'
     },

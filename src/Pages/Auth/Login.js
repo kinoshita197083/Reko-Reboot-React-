@@ -31,7 +31,7 @@ const LoginPage = () => {
         }
 
         passwordRef.current.focus();
-    }, [])
+    })
 
     useEffect(() => {
         setErr(false);

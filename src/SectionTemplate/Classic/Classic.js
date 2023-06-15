@@ -6,7 +6,7 @@ export default function ClassicSection(props) {
     const { list, heading, firstPara, secondPara, thirdPara } = props;
 
     return (
-        <section className='container'>
+        <article className='container'>
             <h1 className='section-heading'>{heading}</h1>
             <p className='section-paragraph'>{firstPara}</p>
             <p className='section-paragraph'>{secondPara}</p>
@@ -26,6 +26,6 @@ export default function ClassicSection(props) {
             <div className='flex'>
                 {props.children}
             </div>
-        </section>
+        </article>
     )
 }

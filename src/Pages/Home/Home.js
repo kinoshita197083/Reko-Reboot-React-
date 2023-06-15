@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useRef, useEffect } from 'react';
 import './Home.css';
 import ClassicSection from '../../SectionTemplate/Classic/Classic';
 import Button from '../../Components/Button/Button';
@@ -15,25 +15,30 @@ export default function HomePage(props) {
     const headingDemo = 'Object Recognition on Images';
     const contentDemo1 = 'Unleash the power of advanced label detection. Seamlessly categorize and analyze objects, scenes, and text within images. Drive user engagement with intelligent search, and efficient content organization. Stay ahead of the competition and deliver exceptional user experiences by integrating more powerful detection technology in the upcoming future.';
 
-    const headingDemo2 = '';
-    const contentDemo2 = '';
+    const headingDemo2 = 'JPG, PNG, HEIF';
+    const contentDemo2 = 'The image analysis service exclusively accommodates jpg, png, and heif formats, necessitating conversion for any other file types to be utilized with the service.';
 
-    const getStarted = useRef(null);
     // Image sub-section
     const imageURI = "/Asset/undraw_the_search.svg";
+
+    const getStarted = useRef(null);
 
     const handleGetStarted = () => {
         getStarted.current.scrollIntoView();
     }
 
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [])
+
     return (
         <>
             {/* Classic Two-Columns-Layout */}
-            <div className='container-curved-bottom even-columns fade-in'>
+            <div className='container curved-bottom-left curved-bottom-right min-height-100 even-columns fade-in'>
                 <ClassicSection heading={heading} firstPara={content1}>
                     <Button icon='Get Started' eventHandle={handleGetStarted} />
                 </ClassicSection>
-                <ImageDisplay imageURI={imageURI} imageWidth={'25rem'} hideInMobile={true} />
+                <ImageDisplay imageURI={imageURI} imageWidth={'65%'} hideInMobile={true} />
             </div>
             <TopBottom
                 heading={headingDemo}
@@ -42,10 +47,10 @@ export default function HomePage(props) {
                 p1={contentDemo1}
             />
             <TopBottom
-                heading={"JPG, PNG, HEIF"}
+                heading={headingDemo2}
                 imageSrc={'/Asset/jpg_png.png'}
                 imageWidth={'50%'}
-                p1={'The image analysis service exclusively accommodates jpg, png, and heif formats, necessitating conversion for any other file types to be utilized with the service.'}
+                p1={contentDemo2}
             />
             <div ref={getStarted}></div>
             <TopBottom

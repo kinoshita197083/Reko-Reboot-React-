@@ -3,7 +3,7 @@ import './ImageDisplay.css';
 
 export default function ImageDisplay(props) {
 
-    let { imageURI, description, hideInMobile, imageWidth } = props;
+    let { imageURI, description, hideInMobile, imageWidth, whiteFiltered } = props;
 
     hideInMobile = hideInMobile ? 'hideInMobile' : '';
 
@@ -15,6 +15,7 @@ export default function ImageDisplay(props) {
                 height='100%'
                 alt={description}
                 loading='lazy'
+                className={whiteFiltered ? 'brightness-0' : ''}
             />
         </div>
     )
